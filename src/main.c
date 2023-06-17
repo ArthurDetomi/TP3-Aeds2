@@ -33,5 +33,7 @@ int main(void) {
     assert(strcmp("-...", morse) == 0);
     free(morse);
 
+    desalocar_arvore(arvore);
+
     return 0;
 }

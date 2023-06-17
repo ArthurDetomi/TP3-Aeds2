@@ -17,5 +17,6 @@ node *inicializa_arvore();
 void profundidade(Arvore *arvore);
 char conv_morse_para_char(Arvore *arvore, char *cod_morse);
 char *conv_char_para_morse(Arvore *arvore, char letra);
+void desalocar_arvore(Arvore *arvore);
 
 #endif

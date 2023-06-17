@@ -99,3 +99,17 @@ char *conv_char_para_morse(Arvore *arvore, char letra) {
 
     return NULL;
 }
+
+void libera_no(node *no) {
+    if (no == NULL) { return; }
+    libera_no(no->esq);
+    libera_no(no->dir);
+    free(no);
+    no = NULL;
+}
+
+void desalocar_arvore(Arvore *arvore) {
+    if (arvore == NULL) { return; }
+    libera_no(arvore);
+    arvore = NULL;
+}
