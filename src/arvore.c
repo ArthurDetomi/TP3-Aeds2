@@ -14,7 +14,7 @@ void verifica_se_alocacao_falhou(void *pont_gen) {
 }
 
 node *inicializa_arvore() {
-    return criar_no(-1);
+    return criar_no('\0');
 }
 
 node *criar_no(char letra) {
