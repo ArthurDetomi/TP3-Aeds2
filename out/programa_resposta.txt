@@ -1,3 +1,7 @@
 teste programa morse converte
 arquivo de teste
-geraldo arthur detomi
+teste maiusculo 12345
+1
+2
+3
+teste teste 8899
