@@ -3,6 +3,12 @@
 ## Especificação do programa
 - Link :[Especificação](documentacao/TP3.pdf)
 
+## Depêndencias
+Necessário ter instalado um compilador de linguagem C e o make.
+- Distribuições Debian
+```shell
+sudo apt install build-essential cmake
+```
 ##  Compilando o programa
 
 Para compilar codigo
