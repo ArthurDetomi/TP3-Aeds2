@@ -43,6 +43,8 @@ int main(int argv, char *argc[]) {
         return ERRO_ARQ_INVALIDO;
     }
 
+    FILE *arquivo_saida = fopen("out/programa_resposta.txt", "w");
+    
     if (strcmp(alfa_para_morse, argc[2]) == 0) {
         printf("Escolha: Conversao de asc2 para morse :\n");
 
@@ -55,6 +57,12 @@ int main(int argv, char *argc[]) {
                     );
                     if (str_convertida != NULL) {
                         printf("%s\n", str_convertida);
+
+                        // Grava no arquivo de saída
+                        if (arquivo_saida != NULL) {
+                            fprintf(arquivo_saida,"%s\n", str_convertida);
+                        }
+
                         free(str_convertida);
                         str_convertida = NULL;
                     }
@@ -75,6 +83,12 @@ int main(int argv, char *argc[]) {
                     );
                     if (str_convertida != NULL) {
                         printf("%s\n", str_convertida);
+
+                        // Grava no arquivo de saída
+                        if (arquivo_saida != NULL) {
+                            fprintf(arquivo_saida,"%s\n", str_convertida);
+                        }
+
                         free(str_convertida);
                         str_convertida = NULL;
                     }
@@ -84,11 +98,24 @@ int main(int argv, char *argc[]) {
     }
     else {
         printf("Error: argumentos invalidos\n");
+        if (arquivo_saida != NULL) {
+            fclose(arquivo_saida);
+        }
+        // libera memoria
+        desalocar_arvore(arvore_morse);
+        fclose(arquivo);
+        arquivo = NULL;
+        arquivo_saida = NULL;
         return ERRO_QTD_ARGS_INVALIDA;
     }
 
+    // libera memoria
     desalocar_arvore(arvore_morse);
     fclose(arquivo);
+    if (arquivo_saida != NULL) {
+        fclose(arquivo_saida);
+        arquivo_saida = NULL;
+    }
     arquivo = NULL;
     return PROGRAMA_EXECUTADO_COM_SUCESSO;
 }
