@@ -25,5 +25,6 @@ char *conv_char_para_morse(ArvoreMorse *arvore_morse, char letra);
 void desalocar_arvore(ArvoreMorse *arvore_morse);
 void preenche_arvore(ArvoreMorse *arvore_morse);
 char *converte_str_alfa_para_morse(char *str_recebida, ArvoreMorse *arvore_morse);
+char *converte_str_morse_para_alfa(char *str_recebida, ArvoreMorse *arvore_morse);
 
 #endif

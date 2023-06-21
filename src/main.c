@@ -41,6 +41,20 @@ int main(int argv, char *argc[]) {
     }
     else if (strcmp("-m", argc[2]) == 0) {
         printf("Escolha: Conversao de Morse para asc2:\n");
+
+        char str_buffer[TAM_BUFFER];
+        while(!feof(arquivo)) {
+            if (fgets(str_buffer, TAM_BUFFER, arquivo) != NULL) {
+                if (str_buffer[0] != '\n') {
+                    char *str_convertida = converte_str_morse_para_alfa(str_buffer, arvore_morse);
+                    if (str_convertida != NULL) {
+                        printf("%s\n", str_convertida);
+                        free(str_convertida);
+                        str_convertida = NULL;
+                    }
+                }
+            }
+        }
     }
     else {
         printf("Error: argumentos invalidos\n");

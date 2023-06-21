@@ -1,9 +1,9 @@
 #include "arvore_morse.h"
 
+#include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h>
 
 #define TAM_MAX_STR 5
 
@@ -135,7 +135,8 @@ void desalocar_arvore(ArvoreMorse *arvore_morse) {
     arvore_morse = NULL;
 }
 
-char *converte_str_alfa_para_morse(char *str_recebida, ArvoreMorse *arvore_morse) {
+char *
+converte_str_alfa_para_morse(char *str_recebida, ArvoreMorse *arvore_morse) {
     int tam_str = strlen(str_recebida);
     if (tam_str == 0) {
         printf("Error: Arquivo vazio\n");
@@ -158,8 +159,9 @@ char *converte_str_alfa_para_morse(char *str_recebida, ArvoreMorse *arvore_morse
                     str_final = (char *)realloc(str_final, tam_str_final);
                 }
 
-                char carac_split = (char) tolower(str_split[i]);  
-                char *morse_resultado = conv_char_para_morse(arvore_morse, carac_split);
+                char carac_split = (char)tolower(str_split[i]);
+                char *morse_resultado
+                    = conv_char_para_morse(arvore_morse, carac_split);
 
                 if (morse_resultado != NULL) {
                     strcat(str_final, morse_resultado);
@@ -175,6 +177,48 @@ char *converte_str_alfa_para_morse(char *str_recebida, ArvoreMorse *arvore_morse
             strcat(str_final, "/ ");
         }
     }
+    return str_final;
+}
+
+char *converte_str_morse_para_alfa(char *str_recebida, ArvoreMorse *arvore_morse) {
+    int tam_str = strlen(str_recebida);
+    if (tam_str == 0) {
+        printf("Error: Arquivo vazio\n");
+        exit(1);
+    }
+
+    unsigned int tam_str_final = sizeof(char) * tam_str + 1;
+    char *str_final = (char *)calloc(tam_str_final, sizeof(char));
+    verifica_se_alocacao_falhou(str_final);
+
+    char *str_split = strtok(str_recebida, " ");
+    unsigned int qtd_caracteres_gravados = 0;
+    while (str_split != NULL) {
+        int tam_split = strlen(str_split);
+
+        // Provavelmente não vai entrar nesse if mas é uma precaução
+        if (qtd_caracteres_gravados == tam_str_final) {
+            tam_str_final = tam_str_final * 2;
+            str_final = (char *)realloc(str_final, tam_str_final);
+            verifica_se_alocacao_falhou(str_final);
+        }
+
+        if (strcmp(str_split, "/") == 0) {
+            str_final[qtd_caracteres_gravados] = ' ';
+            qtd_caracteres_gravados++;
+        }
+        else if (strcmp(str_split, "\n") != 0) {
+            char caracter_convertido = conv_morse_para_char(arvore_morse, str_split);
+
+            if (caracter_convertido != -1) {
+                str_final[qtd_caracteres_gravados] = caracter_convertido;
+                qtd_caracteres_gravados++;
+            }
+        }
+
+        str_split = strtok(NULL, " ");
+    }
+    str_final[qtd_caracteres_gravados] = '\0';
     return str_final;
 }
 
