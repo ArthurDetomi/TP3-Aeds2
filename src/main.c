@@ -14,6 +14,11 @@ int main(int argv, char *argc[]) {
     char morse_para_alfa[] = "-m";
     char imprimir_arvore_morse[] = "-i";
 
+    if (argv <= 1) {
+        printf("Error: Nenhum argumento passado\n");
+        return ERRO_QTD_ARGS_INVALIDA;
+    }
+
     // Inicializa arvore morse para conversões
     ArvoreMorse *arvore_morse = inicializa_arvore();
     preenche_arvore(arvore_morse);
@@ -31,7 +36,7 @@ int main(int argv, char *argc[]) {
         printf("Error: argumentos invalidos\n");
         return ERRO_QTD_ARGS_INVALIDA;
     }
-
+    
     FILE *arquivo = fopen(argc[1], "r");
     if (arquivo == NULL) {
         perror("Error");
