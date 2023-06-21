@@ -41,7 +41,7 @@ Exemplo :
 ```bash
 ./main input/<arquivo_morse.txt> -m
 ```
-- **Desenvolvido por** : [Git:Arthur Detomi](https://github.com/ArthurDetomi) 
+- **Desenvolvido por** : [Geraldo Arthur Detomi](https://github.com/ArthurDetomi) 
 
 <img src="https://avatars.githubusercontent.com/u/99772832?v=4" style="width:100px;margin-left:50px;border-radius:50px;">
 
