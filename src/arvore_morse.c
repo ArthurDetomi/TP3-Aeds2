@@ -86,7 +86,7 @@ void imprime_arvore_pre_ordem(ArvoreMorse *arvore_morse) {
         if (!(arvore_morse->caracter == '.' || arvore_morse->caracter == '-'
               || arvore_morse->caracter == '\0'))
         {
-            printf("%c\n", arvore_morse->caracter);
+            printf("%5c ->   %5s\n", arvore_morse->caracter, arvore_morse->morse);
         }
         imprime_arvore_pre_ordem(arvore_morse->esq);
         imprime_arvore_pre_ordem(arvore_morse->dir);
