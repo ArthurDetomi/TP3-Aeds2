@@ -1,5 +1,8 @@
 # Programa de Conversões (P/Morse <-> p/Alfa)
 
+## Especificação do programa
+- Link :[Especificação](documentacao/TP3.pdf)
+
 ##  Compilando o programa
 
 Para compilar codigo
