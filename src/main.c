@@ -43,6 +43,7 @@ int main(int argv, char *argc[]) {
         return ERRO_ARQ_INVALIDO;
     }
 
+    // Cria arquivo para gravar saída do programa
     FILE *arquivo_saida = fopen("out/programa_resposta.txt", "w");
     
     if (strcmp(alfa_para_morse, argc[2]) == 0) {
