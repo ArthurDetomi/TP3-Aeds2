@@ -1,4 +1,5 @@
 #include "arvore_morse.h"
+#include "msgs_programa.h"
 
 #include <ctype.h>
 #include <stdio.h>
@@ -7,15 +8,19 @@
 
 #define TAM_MAX_STR 5
 
+/*Recebe um ponteiro qualquer e verifica se está nulo, útil para testar se
+ alocação foi realizada com sucesso, caso dê erro finaliza programa*/
 void verifica_se_alocacao_falhou(void *pont_gen) {
     if (pont_gen == NULL) {
         printf("Erro: falta de memoria\n");
-        exit(1);
+        exit(ERRO_FALTA_MEMORIA);
     }
 }
 
+// Inicializa árvore, inicia com raiz com caracter nulo para identifica-la
 node *inicializa_arvore() { return criar_no('\0'); }
 
+// Aloca um novo nó atribui um caracter no respectivo e o retorna
 node *criar_no(char letra) {
     node *novo_no = (node *)malloc(sizeof(node));
     verifica_se_alocacao_falhou(novo_no);
@@ -25,6 +30,7 @@ node *criar_no(char letra) {
     return novo_no;
 }
 
+// Inseri letra na arvore, caso dê erro informa no console
 void inserir_letra(ArvoreMorse *arvore_morse, char *cod_morse, char letra) {
     int tam_codigo = strlen(cod_morse);
 
@@ -53,6 +59,7 @@ void inserir_letra(ArvoreMorse *arvore_morse, char *cod_morse, char letra) {
     strcpy(no_atual->morse, cod_morse);
 }
 
+// Converter um codigo morse para char, caso dê erro retorna -1
 char conv_morse_para_char(ArvoreMorse *arvore_morse, char *cod_morse) {
     int tam_codigo = strlen(cod_morse);
     if (tam_codigo <= 0 || tam_codigo > 5) {
@@ -81,18 +88,23 @@ char conv_morse_para_char(ArvoreMorse *arvore_morse, char *cod_morse) {
     return c;
 }
 
+// Imprimi os nós da arvore utilizando caminhamento pré ordem, ignora raiz e nós
+// sem caracteres alfa
 void imprime_arvore_pre_ordem(ArvoreMorse *arvore_morse) {
     if (arvore_morse != NULL) {
         if (!(arvore_morse->caracter == '.' || arvore_morse->caracter == '-'
               || arvore_morse->caracter == '\0'))
         {
-            printf("%5c ->   %5s\n", arvore_morse->caracter, arvore_morse->morse);
+            printf(
+                "%5c ->   %5s\n", arvore_morse->caracter, arvore_morse->morse
+            );
         }
         imprime_arvore_pre_ordem(arvore_morse->esq);
         imprime_arvore_pre_ordem(arvore_morse->dir);
     }
 }
 
+// Recebe uma letra e retorna seu respectivo código morse
 char *conv_char_para_morse(ArvoreMorse *arvore_morse, char letra) {
     if (arvore_morse == NULL) {
         return NULL;
@@ -117,6 +129,7 @@ char *conv_char_para_morse(ArvoreMorse *arvore_morse, char letra) {
     return NULL;
 }
 
+// libera memória de um nó
 void libera_no(node *no) {
     if (no == NULL) {
         return;
@@ -127,6 +140,7 @@ void libera_no(node *no) {
     no = NULL;
 }
 
+// Desaloca toda memoria ocupada pela árvore
 void desalocar_arvore(ArvoreMorse *arvore_morse) {
     if (arvore_morse == NULL) {
         return;
@@ -135,6 +149,7 @@ void desalocar_arvore(ArvoreMorse *arvore_morse) {
     arvore_morse = NULL;
 }
 
+// Recebe uma string em alfa e a converte para morse
 char *
 converte_str_alfa_para_morse(char *str_recebida, ArvoreMorse *arvore_morse) {
     int tam_str = strlen(str_recebida);
@@ -180,7 +195,9 @@ converte_str_alfa_para_morse(char *str_recebida, ArvoreMorse *arvore_morse) {
     return str_final;
 }
 
-char *converte_str_morse_para_alfa(char *str_recebida, ArvoreMorse *arvore_morse) {
+// Recebe uma string em morse e a converte para alfa
+char *
+converte_str_morse_para_alfa(char *str_recebida, ArvoreMorse *arvore_morse) {
     int tam_str = strlen(str_recebida);
     if (tam_str == 0) {
         printf("Error: Arquivo vazio\n");
@@ -208,7 +225,8 @@ char *converte_str_morse_para_alfa(char *str_recebida, ArvoreMorse *arvore_morse
             qtd_caracteres_gravados++;
         }
         else if (strcmp(str_split, "\n") != 0) {
-            char caracter_convertido = conv_morse_para_char(arvore_morse, str_split);
+            char caracter_convertido
+                = conv_morse_para_char(arvore_morse, str_split);
 
             if (caracter_convertido != -1) {
                 str_final[qtd_caracteres_gravados] = caracter_convertido;
@@ -222,6 +240,7 @@ char *converte_str_morse_para_alfa(char *str_recebida, ArvoreMorse *arvore_morse
     return str_final;
 }
 
+// Preenche árvore com os cod_morse respectivo e a letra correspondente
 void preenche_arvore(ArvoreMorse *arvore_morse) {
     inserir_letra(arvore_morse, ".-", 'a');
     inserir_letra(arvore_morse, "-...", 'b');
