@@ -16,7 +16,10 @@ Programa utiliza árvore binária para conversão de morse para alfanúmerico ou
 ```bash
 ./main -i
 ```
-Para exibir a árvore e os caracteres asc2 disponíveis
+Para exibir a árvore e os caracteres asc2 disponíveis.
+Ou utilizando a tabela:
+
+![TabelaMorse](documentacao/tabela-morse.png)
 
 ## Rodando o programa
 
@@ -38,3 +41,11 @@ Exemplo :
 ```bash
 ./main input/<arquivo_morse.txt> -m
 ```
+- **Desenvolvido por** : [Git:Arthur Detomi](https://github.com/ArthurDetomi) 
+
+<img src="https://avatars.githubusercontent.com/u/99772832?v=4" style="width:100px;margin-left:50px;border-radius:50px;">
+
+
+- **Documentação :** Rhayan e Rodrigo
+
+<img src="https://avatars.githubusercontent.com/u/102100725?v=4" style="width:100px;margin-left:50px;border-radius:50px;">
