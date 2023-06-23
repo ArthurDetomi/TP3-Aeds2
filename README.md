@@ -5,7 +5,7 @@
 
 ## Depêndencias
 Necessário ter instalado um compilador de linguagem C e o make.
-- Distribuições Debian
+- Distribuições Debian🐧
 ```shell
 sudo apt install build-essential cmake
 ```
