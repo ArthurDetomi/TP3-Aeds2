@@ -20,12 +20,12 @@ Limpar arquivos binários
 make clean
 ```
 
-Programa utiliza árvore binária para conversão de morse para alfanumérico ou vice-versa, recomenda-se executar primeiro o programa da seguinte forma:
+Programa utiliza árvore digital Trie para conversão de morse para alfanumérico ou vice-versa, pode-se inserir mais letras caso seja necessário, recomenda-se executar primeiro o programa da seguinte forma:
 
 ```bash
 ./main -i
 ```
-Para exibir a árvore e os caracteres asc2 disponíveis.
+Para exibir a árvore e os caracteres asc2 disponíveis, tambem é possivel inserir mais letras com os respectivos codigos morse desejados.
 Ou utilizando a tabela:
 
 ![TabelaMorse](documentacao/tabela-morse.png)
