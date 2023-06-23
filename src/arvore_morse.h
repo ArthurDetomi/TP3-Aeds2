@@ -4,7 +4,8 @@
 
 typedef enum codificacao {
     PONTO = '.',
-    TRACO = '-'
+    TRACO = '-',
+    VAZIO = '\0'
 } codificacao_morse;
 
 typedef struct node {

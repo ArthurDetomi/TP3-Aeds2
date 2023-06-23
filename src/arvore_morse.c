@@ -18,7 +18,7 @@ void verifica_se_alocacao_falhou(void *pont_gen) {
 }
 
 // Inicializa árvore, inicia com raiz com caracter nulo para identifica-la
-node *inicializa_arvore() { return criar_no('\0'); }
+node *inicializa_arvore() { return criar_no(VAZIO); }
 
 // Aloca um novo nó atribui um caracter no respectivo e o retorna
 node *criar_no(char letra) {
@@ -43,13 +43,13 @@ void inserir_letra(ArvoreMorse *arvore_morse, char *cod_morse, char letra) {
     for (int i = 0; i < tam_codigo; i++) {
         if (cod_morse[i] == TRACO) {
             if (no_atual->dir == NULL) {
-                no_atual->dir = criar_no('-');
+                no_atual->dir = criar_no(VAZIO);
             }
             no_atual = no_atual->dir;
         }
         else if (cod_morse[i] == PONTO) {
             if (no_atual->esq == NULL) {
-                no_atual->esq = criar_no('.');
+                no_atual->esq = criar_no(VAZIO);
             }
             no_atual = no_atual->esq;
         }
@@ -92,9 +92,7 @@ char conv_morse_para_char(ArvoreMorse *arvore_morse, char *cod_morse) {
 // sem caracteres alfa
 void imprime_arvore_pre_ordem(ArvoreMorse *arvore_morse) {
     if (arvore_morse != NULL) {
-        if (!(arvore_morse->caracter == '.' || arvore_morse->caracter == '-'
-              || arvore_morse->caracter == '\0'))
-        {
+        if (arvore_morse->caracter != VAZIO) {
             printf(
                 "%5c ->   %5s\n", arvore_morse->caracter, arvore_morse->morse
             );
@@ -150,8 +148,7 @@ void desalocar_arvore(ArvoreMorse *arvore_morse) {
 }
 
 // Recebe uma string em alfa e a converte para morse
-char *
-converte_str_alfa_para_morse(char *str_recebida, ArvoreMorse *arvore_morse) {
+char *converte_str_alfa_para_morse(char *str_recebida, ArvoreMorse *arvore_morse) {
     int tam_str = strlen(str_recebida);
     if (tam_str == 0) {
         printf("Error: Arquivo vazio\n");
@@ -196,8 +193,7 @@ converte_str_alfa_para_morse(char *str_recebida, ArvoreMorse *arvore_morse) {
 }
 
 // Recebe uma string em morse e a converte para alfa
-char *
-converte_str_morse_para_alfa(char *str_recebida, ArvoreMorse *arvore_morse) {
+char *converte_str_morse_para_alfa(char *str_recebida, ArvoreMorse *arvore_morse) {
     int tam_str = strlen(str_recebida);
     if (tam_str == 0) {
         printf("Error: Arquivo vazio\n");
