@@ -45,11 +45,13 @@ Exemplo :
 ```bash
 ./main input/<arquivo_alfa.txt> -a
 ```
+![alfa_para_morse](documentacao/teste_alfa_para_morse.png)
 - **-m** converte um arquivo com texto em morse para alfanumérico.
 Exemplo :
 ```bash
 ./main input/<arquivo_morse.txt> -m
 ```
+![morse_para_alfa](documentacao/teste_morse_para_alfa.png)
 - **Desenvolvido por** : [Geraldo Arthur Detomi](https://github.com/ArthurDetomi) 
 
 <img src="https://avatars.githubusercontent.com/u/99772832?v=4" style="width:100px;margin-left:50px;border-radius:50px;">

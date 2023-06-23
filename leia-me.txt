@@ -1,5 +1,7 @@
 # Programa de Conversões (P/Morse <-> p/Alfa)
 
+## Aviso : Em caso de dúvida de como rodar o programa, dentro do diretório **documentacao/** há imagens de testes realizados com fotos do terminal ou basta consulta o README.md com um leitor markdown.
+
 ##  Compilando o programa
     Para compilar codigo
         make 
@@ -11,17 +13,17 @@
     Ou utilizando a tabela:
         documentacao/tabela-morse.png
 ## Rodando o programa
-    O diretório input/ é destinado a colocar os arquivos .txt de entrada, cada resposta do servidor de morse para alfanumérico ou o contrário além de ser exibido no console também é criado uma arquivo de saída com o resultado da conversão para o diretório /out 
+    O diretório input/ é destinado a colocar os arquivos .txt de entrada, cada resposta do servidor de morse para alfanumérico ou o contrário além de ser exibido no console também é criado uma arquivo de saída com o resultado da conversão para o diretório /out. 
 
     O programa para rodar utiliza argumentos, abaixo serão listados os argumentos disponíveis e exemplos:
         -i exibi os caracteres disponíveis na arvore morse e seus respectivos códigos morse:
         Exemplo :
             ./main -i
-        -a converte um arquivo com texto em alfanumérico para morse
+        -a converte um arquivo com texto em alfanumérico para morse, logo se estiver enviado como entrada um arquivo com texto alfanumérico utilize "-a".
         Exemplo :
             ./main input/<arquivo_alfa.txt> -a
 
-        -m converte um arquivo com texto em morse para alfanumérico.
+        -m converte um arquivo com texto em morse para alfanumérico, logo se estiver enviado como entrada um arquivo com texto morse utilize "-m".
         Exemplo :
             ./main input/<arquivo_morse.txt> -m
 
