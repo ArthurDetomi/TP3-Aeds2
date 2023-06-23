@@ -4,7 +4,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#define TAM_MAX_STR 5
 #define TAM_BUFFER 140
 #define QTD_MAX_ARGS 3
 
@@ -36,7 +35,7 @@ int main(int argv, char *argc[]) {
         printf("Error: argumentos invalidos\n");
         return ERRO_QTD_ARGS_INVALIDA;
     }
-    
+
     FILE *arquivo = fopen(argc[1], "r");
     if (arquivo == NULL) {
         perror("Error");
@@ -45,7 +44,7 @@ int main(int argv, char *argc[]) {
 
     // Cria arquivo para gravar saída do programa
     FILE *arquivo_saida = fopen("out/programa_resposta.txt", "w");
-    
+
     if (strcmp(alfa_para_morse, argc[2]) == 0) {
         printf("Escolha: Conversao de asc2 para morse :\n");
 
@@ -61,7 +60,7 @@ int main(int argv, char *argc[]) {
 
                         // Grava no arquivo de saída
                         if (arquivo_saida != NULL) {
-                            fprintf(arquivo_saida,"%s\n", str_convertida);
+                            fprintf(arquivo_saida, "%s\n", str_convertida);
                         }
 
                         free(str_convertida);
@@ -87,7 +86,7 @@ int main(int argv, char *argc[]) {
 
                         // Grava no arquivo de saída
                         if (arquivo_saida != NULL) {
-                            fprintf(arquivo_saida,"%s\n", str_convertida);
+                            fprintf(arquivo_saida, "%s\n", str_convertida);
                         }
 
                         free(str_convertida);
