@@ -3,6 +3,9 @@
 ## Especificação do programa
 - Link :[Especificação](documentacao/TP3.pdf)
 
+## Documentação do programa
+- Documentação Latex :[Documentação](documentacao/doc_tp3.pdf)
+
 ## Depêndencias
 Necessário ter instalado um compilador de linguagem C e o make.
 - Distribuições Debian🐧
@@ -57,6 +60,7 @@ Exemplo :
 <img src="https://avatars.githubusercontent.com/u/99772832?v=4" style="width:100px;margin-left:50px;border-radius:50px;">
 
 
-- **Documentação :** Rhayan e Rodrigo
+- **Documentação Latex:** Rhayan, Rodrigo e Geraldo Arthur
 
 <img src="https://avatars.githubusercontent.com/u/102100725?v=4" style="width:100px;margin-left:50px;border-radius:50px;">
+<img src="https://avatars.githubusercontent.com/u/99772832?v=4" style="width:100px;margin-left:50px;border-radius:50px;">
