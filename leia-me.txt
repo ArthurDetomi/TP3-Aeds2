@@ -1,8 +1,9 @@
 # Programa de Conversões (P/Morse <-> p/Alfa)
 
 ## Documentação
-    A documentação se encontra na pasta documentacao/doc_tp3.pdf, também se encontra nessa pasta imagens de exemplo de execuções.
-    
+    A documentação se encontra na pasta documentacao/doc_tp3.pdf, também se encontra nessa pasta imagens de exemplo 
+    de execuções do programa.
+
 ## Aviso : Em caso de dúvida de como rodar o programa, dentro do diretório **documentacao/** há imagens de testes realizados com fotos do terminal ou basta consulta o README.md com um leitor markdown.
 
 ##  Compilando o programa
