@@ -23,7 +23,7 @@ Limpar arquivos binários
 make clean
 ```
 
-Programa utiliza árvore digital Trie para conversão de morse para alfanumérico ou vice-versa, pode-se inserir mais letras caso seja necessário, recomenda-se executar primeiro o programa da seguinte forma:
+Programa utiliza árvore binária para conversão de morse para alfanumérico ou vice-versa, pode-se inserir mais letras caso seja necessário, recomenda-se executar primeiro o programa da seguinte forma:
 
 ```bash
 ./main -i
@@ -38,7 +38,7 @@ Ou utilizando a tabela:
 O diretório **input/** é destinado a colocar os arquivos **.txt** de entrada, cada resposta do servidor de morse para alfanumérico ou o contrário além de ser exibido no console também é criado uma arquivo de saída com o resultado da conversão para o diretório **/out** 
 
 O programa para rodar utiliza argumentos, abaixo serão listados os argumentos disponíveis e exemplos:
-- **-i** exibi os caracteres disponíveis na arvore morse e seus respectivos códigos morse:
+- **-i** exibi os caracteres disponíveis na árvore morse e seus respectivos códigos morse:
 Exemplo :
 ```bash
 ./main -i
